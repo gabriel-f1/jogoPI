@@ -10,6 +10,10 @@ header {
     font-weight: 1;
 }
 
+img {
+    border-radius: 18px;
+}
+
 footer {
     background-color: #ffffff;
     color: #000000; 

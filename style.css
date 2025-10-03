@@ -10,6 +10,7 @@ header {
     font-weight: 1;
 }
 
+
 img {
     border-radius: 18px;
 }
@@ -76,6 +77,22 @@ main {
     border: 1px solid rgba(0,0,0,0.06);
 }
 
+.baloon2 {
+    background-color: rgba(255, 255, 255, 0.95);
+    font-size: 1.5rem;
+    color: #000000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 20px auto;
+    padding: 18px 22px;
+    border-radius: 12px;
+    width: 80%;
+    text-align: center;
+    z-index: 1;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.06);
+    font-weight: lighter;
+}
+
 /* menor aq */
 .baloonq {
     background-color: rgba(255, 255, 255, 0.95);
@@ -104,10 +121,10 @@ main {
 
 /* botões que eu sei que é desnecessário ter 3 tipos quase iguais */
 .buttons-row .button-container button {
-    width: 350px;
-    height: 150px;
+    width: 400px;
+    height: 200px;
     padding: 0;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #000000;
     background-color: #ffffff;
@@ -187,7 +204,6 @@ main {
     align-items: center;
     width: 150%;
     height: 150%;
-    font-weight: bold;
 }
 
 
@@ -242,6 +258,12 @@ main {
         padding: 12px 14px;
     }
 
+    .baloon2 {
+        font-size: 1rem;
+        width: 92%;
+        padding: 12px 14px;
+    }
+
     .baloonq {
         width: 40%;
         font-size: 0.95rem;
@@ -258,5 +280,42 @@ main {
         width: 220px;
         height: 220px;
         font-size: 1.2rem;
+    }
+}
+
+/* garante posicionamento relativo para o badge */
+.button-container {
+    position: relative;
+    /* já existe .button-container, mas reafirmar position garante que o ::before funcione */
+}
+
+/* badge com a letra (usa o atributo data-label) */
+.button-container::before {
+    content: attr(data-label);
+    position: absolute;
+    top: -36px;                  /* distância acima do botão */
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    font-weight: 700;
+    font-size: 2.7rem;
+    line-height: 1;   
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: #ffffff;         /* fundo branco para destacar sobre imagem */
+    border: 2px solid rgba(0,0,0,0.08);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    color: #222222;
+    z-index: 3;
+    pointer-events: none;        /* evita interferir no clique */
+}
+
+
+/* responsividade: ajusta distância e tamanho em telas pequenas */
+@media (max-width: 768px) {
+    .button-container::before {
+        top: -14px;
+        font-size: 1rem;
+        padding: 5px 8px;
     }
 }
